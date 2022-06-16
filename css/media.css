@@ -1,7 +1,6 @@
 @media (max-width: 1477px) {
 
-
-    /*    THIRD SECTION    */
+    /*    FOURTH SECTION    */
 
     .gallaryBlockWrapper {
         background-position: right;
@@ -11,22 +10,28 @@
         display: none;
     }
 
+    /*  THIRD SECTION   */
+
+
 }
 
 @media (max-width: 1290px) {
 
+    /*      FIRST SECTION     */
+
+    .cartBlock {
+        right: 102px;
+    }
+
+    .BoughtProductsBlockActive {
+        right: 70px;
+    }
+
     /*      THIRD SECTION     */
 
-    .shopBlockCatalogeItems {
-        margin-left: 11%;
-    }
-
-    .sliderArrowLeft {
-        left: -50px;
-    }
-
-    .sliderArrowRight {
-        right: -50px;
+    .shopBlockCataloge {
+        /*        width: 447%;*/
+        /* Optional /depend from count of shop elements*/
     }
 
 }
@@ -68,7 +73,7 @@
     /*     FIFTH SECTION     */
 
     .aboutusBlockWrapper {
-        height: 640px;
+        height: 680px;
     }
 
     .aboutusBlockImg {
@@ -157,6 +162,14 @@
         width: 490px;
         font-size: 23px;
         margin: 0;
+    }
+
+    .cartBlock {
+        right: 80px;
+    }
+
+    .BoughtProductsBlockActive {
+        right: 50px;
     }
 
     /*     FOURTH SECTION     */
@@ -277,14 +290,6 @@
         display: block;
     }
 
-    .cartBlock {
-        display: none;
-    }
-
-    .cartBlockMob {
-        display: flex;
-    }
-
     .burgerMenuBlock {
         display: flex;
     }
@@ -293,13 +298,27 @@
         display: block;
     }
 
-    /*      THIRD SECTION      */
-
-    .sliderArrowLeft {
-        left: -10px;
+    .cartBlock {
+        transform: scale(.85);
+        right: 100px;
     }
 
-    .sliderArrowRight {
+    .cartBlockScroll {
+        transform: scale(.75);
+    }
+
+    .BoughtProductsBlockActive {
+        right: 70px;
+    }
+
+
+    /*      THIRD SECTION      */
+
+    .shopBlockCataloge .slick-arrow.slick-prev {
+        left: -40px;
+    }
+
+    .shopBlockCataloge .slick-arrow.slick-next {
         right: -40px;
     }
 
@@ -408,10 +427,11 @@
         margin-right: 20px;
     }
 
-    .shopBlockCatalogeItems {
-        margin-left: 5%;
-        transform: scale(.9);
+    .shopBlockArrowLeft,
+    .shopBlockArrowRight {
+        top: 400px;
     }
+
 
     /*      FIFTH SECTION      */
 
@@ -467,6 +487,13 @@
 
 }
 
+@media (max-width: 830px) {
+    .shopBlockCataloge {
+        /*        width: 900%;*/
+        /* Optional /depend from count of shop elements*/
+    }
+}
+
 @media (max-width: 800px) {
 
     /*      SECOND SECTION      */
@@ -476,37 +503,17 @@
         height: 300px;
         margin-right: -30px;
     }
-
+    
     /*      THIRD SECTION      */
 
-    .shopBlockCataloge {
-        margin-left: 20px;
+    .shopBlockCataloge .slick-arrow.slick-prev {
+        left: 0px;
     }
 
-    .sliderArrowLeft {
-        left: -40px;
+    .shopBlockCataloge .slick-arrow.slick-next {
+        right: 0px;
     }
 
-    .shopBlockMenu {
-        width: 93%;
-        height: 120px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-        margin-top: 30px;
-        margin-bottom: 20px;
-    }
-
-    .shopBlockMenuItems {
-        margin-right: 20px;
-    }
-
-    .shopBlockCatalogeItems {
-        margin-left: 160px;
-        transform: scale(.9);
-    }
 
     /*     FOURTH SECTION     */
 
@@ -624,27 +631,15 @@
         display: none;
     }
 
-    /*      THIRD SECTION      */
-
-    .shopBlockCataloge {
-        width: 300px;
-        margin-left: 20%;
-    }
-
-    .shopBlockCatalogeItems {
-        margin-left: 0px;
-        transform: scale(.9);
-    }
-
-    .sliderArrowLeft {
-        left: -70px;
-    }
-
-    .sliderArrowRight {
-        right: -80px;
-    }
-
     /*      FIFTH SECTION      */
+
+    .aboutusBlockWrapper {
+        height: 620px;
+    }
+
+    .aboutusBlockTitle {
+        margin-top: 60px;
+    }
 
     .aboutusBlockSubTitle {
         font-size: 19px;
@@ -677,6 +672,21 @@
     .aboutusBlockImg .blurCircle {
         display: none;
     }
+
+    /*      SIXTH SECTION   */
+
+    .sentBlock {
+        width: 440px;
+    }
+
+    .responeseOnform {
+        width: 230px;
+        height: 22px;
+        margin-top: 25px;
+    }
+
+
+
 }
 
 @media (max-width: 700px) {
@@ -715,6 +725,8 @@
         filter: blur(90px);
     }
 
+
+
     /*      THIRD SECTION     */
 
     .shopBlockTitle {
@@ -733,6 +745,14 @@
         border-radius: 22px;
         border: 2px solid #fff;
         font-size: 12px;
+    }
+
+    .shopBlockArrowLeft {
+        left: 15px;
+    }
+
+    .shopBlockArrowRight {
+        right: 5px;
     }
 
     /*      FOOTER SECTION      */
@@ -761,6 +781,28 @@
         border-right: 1px solid #fff;
         border-radius: 6px;
     }
+
+    /*   SIXTH SECTION */
+
+    .cartBlock {
+        bottom: 40px;
+        left: 10px;
+        border: 2px solid rgba(255, 255, 255, .8);
+        transform: scale(.7);
+        background: linear-gradient(97.07deg, #60008D 14.57%, #6B00CB 153.2%);
+    }
+
+    .BoughtProductsBlock {
+        transform: scale(.8);
+        top: auto;
+        bottom: 110px;
+        left: -90px;
+    }
+
+    .BoughtProductsBlockActive {
+        left: 10px;
+    }
+
 }
 
 @media (max-width: 625px) {
@@ -884,6 +926,22 @@
         font-weight: 550;
     }
 
+    .cartBlock {
+        bottom: 40px;
+        left: -5px;
+        transform: scale(.7);
+    }
+
+    .BoughtProductsBlock {
+        transform: scale(.8);
+        bottom: 110px;
+        left: -90px;
+    }
+
+    .BoughtProductsBlockActive {
+        left: -5px;
+    }
+
 }
 
 @media (max-width: 570px) {
@@ -942,27 +1000,6 @@
         margin-top: 60px;
     }
 
-    /*      THIRD SECTION      */
-
-    .shopBlockCataloge {
-        width: 300px;
-        margin-top: 13px;
-        margin-left: 16%;
-    }
-
-    .shopBlockCatalogeItems {
-        margin-left: 0px;
-        transform: scale(.9);
-    }
-
-    .sliderArrowLeft {
-        left: -70px;
-    }
-
-    .sliderArrowRight {
-        right: -80px;
-    }
-
     .shopBlockMenu {
         width: 100%;
         height: 140px;
@@ -980,6 +1017,26 @@
         border: 2px solid #fff;
         font-size: 12px;
     }
+
+    /*      THIRD SECTION      */
+
+    .shopCatalogeItems_wrapper{
+        transform: scale(.9);
+    }
+    
+    .shopBlockCataloge .slick-arrow{
+        top: 108%;
+    }
+    
+    .shopBlockCataloge .slick-arrow.slick-prev {
+        left: 120px;
+    }
+
+    .shopBlockCataloge .slick-arrow.slick-next {
+        right: 120px;
+    }
+    
+    
 
     /*      FOOTER SECTION      */
 
@@ -1071,22 +1128,6 @@
 
 @media (max-width: 530px) {
 
-    /*    THIRD SECTION     */
-
-    .shopBlockCataloge {
-        width: 300px;
-        margin-top: 13px;
-        margin-left: 12%;
-    }
-
-    .sliderArrowLeft {
-        left: -40px;
-    }
-
-    .sliderArrowRight {
-        right: -55px;
-    }
-
     /*             FOURTH SECTION      */
 
     .gallaryBlockWrapper {
@@ -1156,7 +1197,7 @@
     /*      FIFTH SECTION      */
 
     .aboutusBlockWrapper {
-        height: 610px;
+        height: 590px;
     }
 
     .aboutusBlockTitle {
@@ -1195,6 +1236,24 @@
         margin-bottom: 23px;
     }
 
+    .messageFormWrapper {
+        height: 880px;
+    }
+
+    .sentBlock {
+        width: 240px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .responeseOnform {
+        width: 230px;
+        height: 22px;
+        font-size: 15px;
+        margin-top: 10px;
+        padding: 10px 0px;
+    }
 
 }
 
@@ -1231,11 +1290,6 @@
         height: 350px;
         padding-left: 0;
         font-size: 20px;
-    }
-
-    .cartBlockMob {
-        margin-bottom: -95px;
-        margin-left: -130px;
     }
 
     .mainTextBlock_textBlock {
@@ -1312,35 +1366,46 @@
 
     /*    THIRD SECTION     */
 
-    .shopBlockWrapper {
-        height: 700px;
+
+    /*   SIXTH SECTION      */
+
+    .cartBlock {
+        bottom: 20px;
+        left: -10px;
+        transform: scale(.6);
     }
 
-    .shopBlockCataloge {
-        width: 300px;
-        margin-top: -10px;
-        margin-left: 0%;
+    .BoughtProductsBlock {
+        transform: scale(.7);
+        bottom: 80px;
+        left: -190px;
     }
 
-    .shopBlockCatalogeItems {
-        transform: scale(.8);
-    }
-
-    .sliderArrowLeft {
-        left: -5px;
-    }
-
-    .sliderArrowRight {
-        right: -28px;
-    }
-
-    .owl-dots {
-        display: none;
+    .BoughtProductsBlockActive {
+        left: -15px;
     }
 
 }
 
 @media (max-width: 425px) {
+    
+     /*      THIRD SECTION      */
+
+    .shopCatalogeItems_wrapper{
+        transform: scale(.9);
+    }
+    
+    .shopBlockCataloge .slick-arrow{
+        top: 108%;
+    }
+    
+    .shopBlockCataloge .slick-arrow.slick-prev {
+        left: 80px;
+    }
+
+    .shopBlockCataloge .slick-arrow.slick-next {
+        right: 80px;
+    }
 
     /*             FOURTH SECTION      */
 
@@ -1506,11 +1571,6 @@
         height: 600px;
     }
 
-    .cartBlockMob {
-        margin-bottom: -35px;
-        margin-left: -130px;
-    }
-
     .logoBlock_Img {
         width: 75px;
         height: 75px;
@@ -1590,29 +1650,12 @@
 
     /*    THIRD SECTION     */
 
-    .shopBlockWrapper {
-        height: 700px;
-    }
-
-    .shopBlockCataloge {
-        width: 300px;
-        margin-top: -10px;
-        margin-left: -20px;
-    }
-
-    .shopBlockCatalogeItems {
-        transform: scale(.8);
-    }
-
-    .sliderArrowLeft {
-        left: 20px;
-    }
-
-    .sliderArrowRight {
-        right: -5px;
-    }
 
     /*       SIXTH SECTION      */
+
+    .messageFormWrapper {
+        height: 910px;
+    }
 
     .messageFormTitle {
         width: 260px;
@@ -1641,6 +1684,20 @@
 
 @media (max-width: 360px) {
 
+    /*      THIRD SECTION      */
+
+    .shopCatalogeItems_wrapper{
+        width: 320px;
+        transform: scale(.8);
+    }
+    .shopBlockCatalogeItems{
+        width: 320px;
+    }
+    
+    .slick-list{
+        margin-left: -40px;
+    }
+    
     /*             FOURTH SECTION      */
 
     .gallaryBlockWrapper {

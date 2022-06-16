@@ -11,26 +11,53 @@
 </head>
 
 <body>
-    <div class="headerWrapper">
+    <div class="headerWrapper" id="headerWrapper">
         <div class="mainWrapper">
             <header class="header">
-                <nav>
+                <nav class="mainNav">
                     <div class="logoBlock">
                         <img src="images/logoImg.png" alt="" class="logoBlock_Img">
                         <p class="logoBlock_Text">VR meta</p>
                     </div>
                     <div class="menu">
                         <ul>
-                            <li class="li_active"><a href="#">Home</a></li>
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contacts</a></li>
-                            <li><a href="#">Gallary</a></li>
+                            <li class="li_active Home"><a href="#">Home</a></li>
+                            <li class="Products"><a href="#">Products</a></li>
+                            <li class="About"><a href="#">About</a></li>
+                            <li class="Contacts"><a href="#">Contacts</a></li>
+                            <li class="Gallary"><a href="#">Gallary</a></li>
                         </ul>
                     </div>
+                    <div class="cartBlock_empty"></div>
                     <div class="cartBlock">
                         <div class="cartBlock_Img"><img src="images/cartImg.png" alt=""></div>
-                        <p class="cartBlock_Text">150 $ <img src="images/PolygonIcon.png" alt=""></p>
+                        <p class="cartBlock_Text"><span class="cartBlock_Price">0</span> $ <img src="images/PolygonIcon.png" alt=""></p>
+                    </div>
+                    <div class="BoughtProductsBlock">
+                        <div class="AddedProducts">
+                            <div class="BoughtProducts_Items">
+                                <div class="BoughtProducts_Name">VR Headset Oculus</div>
+                                <div class="BoughtProducts_rightBlock">
+                                    <div class="BoughtProducts_Price">150$</div>
+                                    <div class="BoughtProducts_Count">
+                                        <div class="BoughtProductsMinuse">-</div>
+                                        <div class="BoughtProductsCountOfBuy">1</div>
+                                        <div class="BoughtProductsPlus">+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="orderForm" id="form-order">
+                            <div class="nextStepOfOrdering">
+                                <input type="text" name="yourName" id="yourName" placeholder="* Enter name" autocomplete="off">
+                                <input type="text" name="yourPhone" id="yourPhone" placeholder="* Enter phone" autocomplete="off">
+                                <input type="text" name="yourAddress" id="yourAddress" placeholder="* Enter address" autocomplete="off">
+                            </div>
+                            <input class="BoughtProducts_btnBuy" id="nextBtnOrder" value="Next">
+                            <input type="submit" class="BoughtProducts_btnBuy" id="buyBtnOrder" value="Buy">
+                            <div class="alertFormBuy"></div>
+                        </form>
+                        <div class="BoughtProducts_textAlert">Sorry, you don't choose anything: )</div>
                     </div>
 
                     <!--                    BURGER MENU                         -->
@@ -43,16 +70,12 @@
                     <div class="burgerMenuBlock">
                         <div class="burgerMenu">
                             <ul>
-                                <li class="burger_li_active_mob"><a href="#">Home</a></li>
-                                <li><a href="#">Products</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contacts</a></li>
-                                <li><a href="#">Gallary</a></li>
+                                <li class="burger_li_active_mob Home"><a href="#">Home</a></li>
+                                <li class="Products"><a href="#">Products</a></li>
+                                <li class="About"><a href="#">About</a></li>
+                                <li class="Contacts"><a href="#">Contacts</a></li>
+                                <li class="Gallary"><a href="#">Gallary</a></li>
                             </ul>
-                        </div>
-                        <div class="cartBlock cartBlockMob">
-                            <div class="cartBlock_Img"><img src="images/cartImg.png" alt=""></div>
-                            <p class="cartBlock_Text">150 $ <img src="images/PolygonIcon.png" alt=""></p>
                         </div>
                     </div>
                 </nav>
@@ -60,7 +83,7 @@
                     <div class="mainTextBlock_textBlock">
                         <h2>Squad up with friends in different time zones. meet up with real people at virtual events.</h2>
                         <p>Buy your own VR glasses Oculus. Create, play and explore on New VR Engine</p>
-                        <a class="mainTextBlock_btnOrder" href="#">ORDER</a>
+                        <a class="mainTextBlock_btnOrder Products" href="#">ORDER</a>
                     </div>
                     <div class="mainTextBlock_imgBlock">
                         <div class="blurCircle"></div>
@@ -108,20 +131,22 @@
             </div>
         </div>
     </div>
-    <div class="shopBlockWrapper">
+    <div class="shopBlockWrapper" id="shopBlockWrapper">
         <div class="mainWrapper">
             <div class="shopBlock">
                 <div class="shopBlockTitle">Our products</div>
                 <div class="shopBlockMenu">
-                    <div class="shopBlockMenuItems shopBlockMenuItemsActive">All</div>
-                    <div class="shopBlockMenuItems">VR headsets</div>
-                    <div class="shopBlockMenuItems">Controllers</div>
-                    <div class="shopBlockMenuItems">Consoles</div>
-                    <div class="shopBlockMenuItems">Other</div>
+                    <div class="shopBlockMenuItems shopBlockMenuItemsActive" 
+                    id="filter_all" data-filter="all">All</div>
+                    <div class="shopBlockMenuItems" id="filter_headsets" data-filter="headsets">VR headsets</div>
+                    <div class="shopBlockMenuItems" 
+                    id="filter_controllers" data-filter="controllers">Controllers</div>
+                    <div class="shopBlockMenuItems" id="filter_consoles" data-filter="consoles">Consoles</div>
+                    <div class="shopBlockMenuItems" id="filter_other" data-filter="others">Others</div>
                 </div>
                 <div class="shopBlockCataloge">
-                    <div class="owl-carousel">
-                        <div class="shopBlockCatalogeItems item">
+                    <div class="shopCatalogeItems_wrapper classHeadsets">
+                        <div class="shopBlockCatalogeItems">
                             <div class="ItemsTop">
                                 <p>300$</p>
                                 <img src="images/headsetIcon.png" alt="">
@@ -136,11 +161,20 @@
                                         <li>Settings</li>
                                         <li>Colors</li>
                                     </ul>
-                                    <div class="btnBuy">Buy</div>
+                                    <div class="btnBuy">
+                                        <div class="btnBuyNonActive">Buy</div>
+                                        <div class="btnBuyActive">
+                                            <div class="btnBuyMinuse">-</div>
+                                            <div class="countOfBuy">1</div>
+                                            <div class="btnBuyPlus">+</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="shopBlockCatalogeItems item">
+                    </div>
+                    <div class="shopCatalogeItems_wrapper classHeadsets">
+                        <div class="shopBlockCatalogeItems">
                             <div class="ItemsTop">
                                 <p>350$</p>
                                 <img src="images/headsetIcon.png" alt="">
@@ -148,18 +182,27 @@
                             <img src="images/Ellipse.png" alt="" class="catalogeImg catalogeImgEliplse">
                             <img src="images/headset3.png" alt="" class="catalogeImg">
                             <div class="ItemsMiddle">
-                                <h3>VR Headset Oculus</h3>
+                                <h3>VR Headset Zero</h3>
                                 <p>Only ecological material of American production</p>
                                 <div class="ItemsBottom">
                                     <ul class="listOptions">
                                         <li>Settings</li>
                                         <li>Colors</li>
                                     </ul>
-                                    <div class="btnBuy">Buy</div>
+                                    <div class="btnBuy">
+                                        <div class="btnBuyNonActive">Buy</div>
+                                        <div class="btnBuyActive">
+                                            <div class="btnBuyMinuse">-</div>
+                                            <div class="countOfBuy">1</div>
+                                            <div class="btnBuyPlus">+</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="shopBlockCatalogeItems item">
+                    </div>
+                    <div class="shopCatalogeItems_wrapper classHeadsets">
+                        <div class="shopBlockCatalogeItems">
                             <div class="ItemsTop">
                                 <p>150$</p>
                                 <img src="images/headsetIcon.png" alt="">
@@ -167,18 +210,27 @@
                             <img src="images/Ellipse.png" alt="" class="catalogeImg catalogeImgEliplse">
                             <img src="images/headset4.png" alt="" class="catalogeImg">
                             <div class="ItemsMiddle">
-                                <h3>VR Headset Oculus</h3>
+                                <h3>VR Headset Jungle</h3>
                                 <p>Only ecological material of American production</p>
                                 <div class="ItemsBottom">
                                     <ul class="listOptions">
                                         <li>Settings</li>
                                         <li>Colors</li>
                                     </ul>
-                                    <div class="btnBuy">Buy</div>
+                                    <div class="btnBuy">
+                                        <div class="btnBuyNonActive">Buy</div>
+                                        <div class="btnBuyActive">
+                                            <div class="btnBuyMinuse">-</div>
+                                            <div class="countOfBuy">1</div>
+                                            <div class="btnBuyPlus">+</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="shopBlockCatalogeItems item">
+                    </div>
+                    <div class="shopCatalogeItems_wrapper classControllers">
+                        <div class="shopBlockCatalogeItems">
                             <div class="ItemsTop">
                                 <p>300$</p>
                                 <img src="images/headsetIcon.png" alt="">
@@ -193,11 +245,76 @@
                                         <li>Settings</li>
                                         <li>Colors</li>
                                     </ul>
-                                    <div class="btnBuy">Buy</div>
+                                    <div class="btnBuy">
+                                        <div class="btnBuyNonActive">Buy</div>
+                                        <div class="btnBuyActive">
+                                            <div class="btnBuyMinuse">-</div>
+                                            <div class="countOfBuy">1</div>
+                                            <div class="btnBuyPlus">+</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="shopBlockCatalogeItems item">
+                    </div>
+                    <div class="shopCatalogeItems_wrapper classHeadsets">
+                        <div class="shopBlockCatalogeItems">
+                            <div class="ItemsTop">
+                                <p>500$</p>
+                                <img src="images/headsetIcon.png" alt="">
+                            </div>
+                            <img src="images/Ellipse.png" alt="" class="catalogeImg catalogeImgEliplse">
+                            <img src="images/catalogImg.png" alt="" class="catalogeImg">
+                            <div class="ItemsMiddle">
+                                <h3>VR Headset Neon</h3>
+                                <p>Only ecological material of American production</p>
+                                <div class="ItemsBottom">
+                                    <ul class="listOptions">
+                                        <li>Settings</li>
+                                        <li>Colors</li>
+                                    </ul>
+                                    <div class="btnBuy">
+                                        <div class="btnBuyNonActive">Buy</div>
+                                        <div class="btnBuyActive">
+                                            <div class="btnBuyMinuse">-</div>
+                                            <div class="countOfBuy">1</div>
+                                            <div class="btnBuyPlus">+</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shopCatalogeItems_wrapper classConsoles">
+                        <div class="shopBlockCatalogeItems">
+                            <div class="ItemsTop">
+                                <p>300$</p>
+                                <img src="images/headsetIcon.png" alt="">
+                            </div>
+                            <img src="images/Ellipse.png" alt="" class="catalogeImg catalogeImgEliplse">
+                            <img src="images/ps5Console.png" alt="" class="catalogeImg">
+                            <div class="ItemsMiddle">
+                                <h3>VR Headset Oculus</h3>
+                                <p>Only ecological material of American production</p>
+                                <div class="ItemsBottom">
+                                    <ul class="listOptions">
+                                        <li>Settings</li>
+                                        <li>Colors</li>
+                                    </ul>
+                                    <div class="btnBuy">
+                                        <div class="btnBuyNonActive">Buy</div>
+                                        <div class="btnBuyActive">
+                                            <div class="btnBuyMinuse">-</div>
+                                            <div class="countOfBuy">1</div>
+                                            <div class="btnBuyPlus">+</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shopCatalogeItems_wrapper classHeadsets">
+                        <div class="shopBlockCatalogeItems">
                             <div class="ItemsTop">
                                 <p>300$</p>
                                 <img src="images/headsetIcon.png" alt="">
@@ -212,17 +329,26 @@
                                         <li>Settings</li>
                                         <li>Colors</li>
                                     </ul>
-                                    <div class="btnBuy">Buy</div>
+                                    <div class="btnBuy">
+                                        <div class="btnBuyNonActive">Buy</div>
+                                        <div class="btnBuyActive">
+                                            <div class="btnBuyMinuse">-</div>
+                                            <div class="countOfBuy">1</div>
+                                            <div class="btnBuyPlus">+</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="shopBlockCatalogeItems shopBlockCatalogeItemsSpecial item">
+                    </div>
+                    <div class="shopCatalogeItems_wrapper classConsoles">
+                        <div class="shopBlockCatalogeItems">
                             <div class="ItemsTop">
                                 <p>300$</p>
                                 <img src="images/headsetIcon.png" alt="">
                             </div>
                             <img src="images/Ellipse.png" alt="" class="catalogeImg catalogeImgEliplse">
-                            <img src="images/catalogImg.png" alt="" class="catalogeImg">
+                            <img src="images/ps5Console.png" alt="" class="catalogeImg">
                             <div class="ItemsMiddle">
                                 <h3>VR Headset Oculus</h3>
                                 <p>Only ecological material of American production</p>
@@ -231,17 +357,52 @@
                                         <li>Settings</li>
                                         <li>Colors</li>
                                     </ul>
-                                    <div class="btnBuy">Buy</div>
+                                    <div class="btnBuy">
+                                        <div class="btnBuyNonActive">Buy</div>
+                                        <div class="btnBuyActive">
+                                            <div class="btnBuyMinuse">-</div>
+                                            <div class="countOfBuy">1</div>
+                                            <div class="btnBuyPlus">+</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shopCatalogeItems_wrapper classOthers">
+                        <div class="shopBlockCatalogeItems">
+                            <div class="ItemsTop">
+                                <p>300$</p>
+                                <img src="images/headsetIcon.png" alt="">
+                            </div>
+                            <img src="images/Ellipse.png" alt="" class="catalogeImg catalogeImgEliplse">
+                            <img src="images/ps5Console.png" alt="" class="catalogeImg">
+                            <div class="ItemsMiddle">
+                                <h3>VR Headset Oculus</h3>
+                                <p>Only ecological material of American production</p>
+                                <div class="ItemsBottom">
+                                    <ul class="listOptions">
+                                        <li>Settings</li>
+                                        <li>Colors</li>
+                                    </ul>
+                                    <div class="btnBuy">
+                                        <div class="btnBuyNonActive">Buy</div>
+                                        <div class="btnBuyActive">
+                                            <div class="btnBuyMinuse">-</div>
+                                            <div class="countOfBuy">1</div>
+                                            <div class="btnBuyPlus">+</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
-    <div class="gallaryBlockWrapper">
+    <div class="gallaryBlockWrapper" id="gallaryBlockWrapper">
         <div class="mainWrapper">
             <div class="gallaryBlock">
                 <div class="gallaryBlockTitle">Gallary of our products</div>
@@ -266,15 +427,18 @@
             </div>
         </div>
     </div>
-    <div class="aboutusBlockWrapper">
+    <div class="aboutusBlockWrapper" id="aboutusBlockWrapper">
         <div class="mainWrapper">
             <div class="aboutusBlock">
                 <div class="aboutusBlockText">
                     <div class="aboutusBlockTitle">About our Company</div>
                     <div class="aboutusBlockSubTitle">We are new innovation company</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. empor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco empor incididu</p>
+                    <p>Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. empor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco empor incididu</p>
                     <p>Excepteur sint occaecat cupidatat non
                         proident, sunt in culpa qui officia deserunt mollit anim id est laborum. laboris nisi ut aliquip ex ea</p>
+                    <p id="aboutusExtraText">Сonsectetur sint occaecat cupidatat non
+                        proident, sunt in culpa officia deserunstrud exercitation ullamco. empor incididunt ut l</p>
+
                     <div class="btnReadMore">
                         Read more <img src="images/Arrow.png" alt="">
                     </div>
@@ -285,16 +449,16 @@
                 </div>
             </div>
         </div>
-    </div> 
-    <div class="messageFormWrapper">
+    </div>
+    <div class="messageFormWrapper" id="messageFormWrapper">
         <div class="mainWrapper">
             <div class="messageFormBlock">
                 <div class="messageFormTitle">Have questions? Ask us!</div>
                 <form class="messageForm" id="form-enquiry">
                     <div class="messageFormFlexBox">
                         <div class="messageFormLeftSide">
-                            <input type="text" name="name" id="name" placeholder="Enter name" autocomplete="off"><br>
-                            <input type="text" name="phone" id="phone" placeholder="Enter the phone" autocomplete="off">
+                            <input type="text" name="name" id="name" placeholder="*Enter name" autocomplete="off"><br>
+                            <input type="text" name="phone" id="phone" placeholder="*Enter the phone" autocomplete="off">
                         </div>
                         <div class="messageFormRightSide">
                             <input type="text" name="email" id="email" placeholder="Enter email" autocomplete="off"><br>
@@ -302,7 +466,10 @@
                         </div>
                     </div>
                     <textarea type="text" name="message" id="message" placeholder="Enter message" autocomplete="off"></textarea>
-                    <input type="submit" id="submit" value="Send message">
+                    <div class="sentBlock">
+                        <input type="submit" id="submit" value="Send message">
+                        <div class="responeseOnform"></div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -322,11 +489,11 @@
                 <div class="footerMiddleBlock">
                     <div class="footerMenu menu">
                         <ul>
-                            <li class="footer_li_active"><a href="#">Home</a></li>
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contacts</a></li>
-                            <li><a href="#">Gallary</a></li>
+                            <li class="footer_li_active Home"><a href="#">Home</a></li>
+                            <li class="Products"><a href="#">Products</a></li>
+                            <li class="About"><a href="#">About</a></li>
+                            <li class="Contacts"><a href="#">Contacts</a></li>
+                            <li class="Gallary"><a href="#">Gallary</a></li>
                         </ul>
                     </div>
                 </div>
@@ -342,7 +509,7 @@
 
     <!--  JQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="js/slick.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 

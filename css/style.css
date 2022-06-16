@@ -6,7 +6,7 @@ html {
     width: 100%;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
-
+    user-select: none;
 }
 
 body {
@@ -42,7 +42,7 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 35px;
+    margin-top: 25px;
 }
 
 .logoBlock {
@@ -168,27 +168,262 @@ nav {
     border-bottom: 1px solid rgba(255, 255, 255, 0.64);
 }
 
+.cartBlock_empty{
+    width: 120px;
+    padding: 5px 10px;
+    opacity: 0;
+}
+
 .cartBlock {
+    position: fixed;
+    width: 120px;
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 120px;
+    right: 152px;
+    padding: 7px 15px;
+    z-index: 1100;
+    opacity: 1;
+    border: 2px solid rgba(255, 255, 255, 0);
+    background: none;
+    border-radius: 15px;
+    transform: scale(1);
+    transition: .2s;
 }
 
-.cartBlockMob {
-    margin-bottom: -95px;
-    margin-left: -180px;
+.cartBlock:hover{
+    border: 2px solid rgba(255, 255, 255, .7);
+    transition: .2s;
+}
+
+.cartBlock:active{
+    border: 2px solid rgba(255, 255, 255, 0);
+    transition: .2s;
+}
+ 
+.cartBlockScroll{
+    border: 2px solid rgba(255, 255, 255, .8);
+    transform: scale(.9);
+    background: linear-gradient(97.07deg, #60008D 14.57%, #6B00CB 153.2%);
+    transition: .2s;
+}
+
+.cartBlockScroll:hover{
+    border: 2px solid rgba(255, 255, 255, .8);
+    border-radius: 25px;
+    transition: .2s;
+    
+}
+
+.cartBlockScroll:active{
+    border: 2px solid rgba(255, 255, 255, .4);
+    transition: .1s;
+}
+
+.cartBlockBurger{
+    opacity: 0;
+    z-index: -1000;
+    transition: .3s;
 }
 
 .cartBlock_Img img {
     width: 50px;
     height: 50px;
+    transition: .2s;
 }
 
 .cartBlock_Text img {
     width: 13px;
     height: 8px;
+}
+
+.BoughtProductsBlock{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 220px;
+    top: 120px;
+    right: -190px;
+    z-index: 300;
+    border-radius: 15px;
+    border: 2.5px solid rgba(255, 255, 255, .7);
+    background: linear-gradient(182.54deg, rgba(115, 30, 168, 0.9) 11.59%, rgba(125, 54, 168, 0.9) 101.36%);
+    opacity: 0;
+    transition: .3s;
+}
+
+.BoughtProductsBlockActive{
+    opacity: 1;
+    right: 120px;
+    transition: .3s;
+}
+
+.AddedProducts{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.AddedProductsScroll{
+    width: 185px;
+    height: 270px;
+    margin-top: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.AddedProductsScroll::-webkit-scrollbar{
+    width: 4px;
+}
+
+.AddedProductsScroll::-webkit-scrollbar-track{
+    background: #5b1985;
+}
+.AddedProductsScroll::-webkit-scrollbar-thumb{
+    background: rgba(155, 69, 209, .8);
+}
+
+.BoughtProducts_Items{
+    width: 112%;
+    display: none;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 14.5px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1.8px solid rgba(255, 255, 255, .7);
+}
+
+.BoughtProducts_Items:first-child{
+    margin-top: 25px;
+}
+
+.BoughtProducts_ItemsScroll{
+    width: 96%;
+}
+
+.BoughtProducts_ItemsScroll:first-child{
+    margin-top: 10px;
+}
+
+
+.BoughtProducts_Name{
+    width: 100px;
+    opacity: .9;
+}
+
+.BoughtProducts_rightBlock{
+    width: 60px;
+    text-align: center;
+    opacity: .9;
+}
+
+.BoughtProducts_Count{
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-top: 7px;
+}
+
+.BoughtProductsMinuse, .BoughtProductsPlus{
+    cursor: pointer;
+    transition: .1s;
+}
+.BoughtProductsMinuse:hover, .BoughtProductsPlus:hover{
+    opacity: .8;
+    transition: .1s;
+}
+
+.BoughtProductsMinuse:active, .BoughtProductsPlus:active{
+    opacity: .6;
+    transition: .1s;
+}
+
+.BoughtProducts_btnBuy{
+    user-select: none;
+    cursor: pointer;
+    width: 107px;
+    height: 38px;
+    background: rgba(115, 30, 168, 1);
+    border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, .8);
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 17px;
+    margin-top: 7px;
+    outline: none;
+    transition: .1s;
+}
+
+.BoughtProducts_btnBuy:hover{
+    opacity: .7;
+    transition: .1s;
+}
+.BoughtProducts_btnBuy:active{
+    opacity: 1;
+    transition: .1s;
+}
+
+.BoughtProducts_textAlert{
+    text-align: center;
+    margin: 10px 0px;
+}
+
+#buyBtnOrder{
+    display: none;
+}
+
+.orderForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nextStepOfOrdering{
+    display: none;
+}
+
+.alertFormBuy{
+    display: none;
+    font-size: 15px;
+    font-weight: 400;
+    width: 190px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    opacity: .94;
+}
+
+.nextStepOfOrdering input{
+    display: block;
+    width: 178px;
+    font-size: 17px;
+    padding-bottom: 12px;
+    margin-top: 18px;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 1.5px solid rgba(255, 255, 255, .75);
+    color: rgba(255, 255, 255, .75);
+    background: none;
+    outline: none;
+}
+
+.nextStepOfOrdering input:first-child{
+    margin-top: 20px;
+}
+
+.nextStepOfOrdering input::placeholder{
+    color: #fff;
+    font-weight: 500;
+    opacity: .75;
 }
 
 .mainTextBlock {
@@ -352,6 +587,7 @@ nav {
 }
 
 .shopBlock {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -397,6 +633,69 @@ nav {
     background: rgba(64, 0, 103, 0.65);
 }
 
+.shopBlockCataloge {
+    position: relative;
+}
+
+/*       slick styles          */
+
+.slick-list{
+    overflow: hidden;
+}
+
+.slick-track{
+    display: flex;
+}
+
+.shopBlockCataloge .slick-arrow{
+    cursor: pointer;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    z-index: 10;
+    font-size: 0;
+    outline: none;
+    border: none;
+    margin-top: -35px;
+    transition: .2s;
+}
+
+.shopBlockCataloge .slick-arrow:hover{
+    opacity: .6;
+    transition: .2s;
+}
+
+.shopBlockCataloge .slick-arrow:active{
+    opacity: .9;    
+    transition: .2s;
+}
+
+.shopBlockCataloge .slick-arrow.slick-prev{
+    background: url("../images/arrowIconL.png") right no-repeat;
+    left: -90px;
+}
+.shopBlockCataloge .slick-arrow.slick-next{
+    background: url("../images/arrowIconR.png") left no-repeat;
+    right: -90px;
+}
+
+.shopBlockCataloge .slick-arrow.slick-prev.slick-disabled{
+    opacity: .6;
+    transition: .2s;
+}
+.shopBlockCataloge .slick-arrow.slick-next.slick-disabled{
+    opacity: .6;
+    transition: .2s;
+}
+
+
+
+.shopCatalogeItems_wrapper{
+    display: flex;
+    justify-content: center;
+}
+
 .shopBlockCatalogeItems {
     position: relative;
     width: 320px;
@@ -405,8 +704,18 @@ nav {
     border: 2px solid #000;
     border-radius: 15px;
     overflow: hidden;
+    z-index: 100;
     transition: .3s;
 }
+
+.classHeadsetsActive {
+    border: 2px solid rgba(105, 0, 209, .5);
+}
+
+.NoneActiveClassCataloge {
+    opacity: .5;
+}
+
 
 .catalogeImg {
     position: absolute;
@@ -480,7 +789,7 @@ nav {
     line-height: 23px;
 }
 
-.btnBuy {
+.btnBuyNonActive {
     cursor: pointer;
     width: 115px;
     font-size: 13px;
@@ -490,11 +799,56 @@ nav {
     margin-right: 5px;
     border: 2px solid #fff;
     transition: .3s;
+    display: block;
+}
+
+.btnBuyActive {
+    display: none;
+    align-items: center;
+}
+
+.countOfBuy{
+    width: 40px;
+    height: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btnBuyMinuse,
+.btnBuyPlus {
+    cursor: pointer;
+    width: 35px;
+    height: 33px;
+    font-size: 26px;
+    text-align: center;
+    padding: 0px 0px 2px 0px;
+    font-weight: bold;
+    margin-right: 5px;
+    border: 2px solid #fff;
+    transition: .3s;
+}
+
+.btnBuyPlus {
+    width: 35px;
+    height: 33px;
+    font-size: 23px;
+    padding: 2px 0px 0px 0px;
+}
+
+.btnBuyMinuse:hover,
+.btnBuyPlus:hover{
+    opacity: .7;
+    transition: .3s;
+}
+.btnBuyMinuse:active,
+.btnBuyPlus:active{
+    opacity: 1;
+    transition: .1s;
 }
 
 
-.btnBuy:hover {
-    border-radius: 12px;
+.btnBuyNonActive:hover {
+    border-radius: 8px;
     background: rgba(64, 0, 103, 0.65);
     transition: .3s;
 }
@@ -675,6 +1029,10 @@ nav {
     font-weight: 300;
 }
 
+#aboutusExtraText {
+    display: none;
+}
+
 .btnReadMore {
     width: 140px;
     cursor: pointer;
@@ -709,7 +1067,7 @@ nav {
     margin-top: 100px;
 }
 
-.aboutusImg{
+.aboutusImg {
     position: absolute;
     width: inherit;
     height: inherit;
@@ -779,14 +1137,14 @@ nav {
     color: #fff;
     font-weight: 500;
     opacity: 0.7;
-}    
+}
 
 #message {
-    width: 77%;
     display: block;
+    width: 77%;
+    height: 170px;
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
-    height: 170px;
     margin-top: 60px;
     border: none;
     border-bottom: 1.4px solid rgba(255, 255, 255, .7);
@@ -794,6 +1152,14 @@ nav {
     background: none;
     outline: none;
     resize: none;
+}
+
+.sentBlock{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #submit {
@@ -814,6 +1180,16 @@ nav {
     background: rgba(64, 0, 103, 0.65);
     transition: .2s;
 }
+
+.responeseOnform{
+    width: 400px;
+    height: 22px;
+    font-weight: 500;
+    opacity: .8;
+    padding: 10px 10px;
+    margin-top: 45px;
+}
+
 
 
 /*    Fifth SECTION    */
@@ -925,12 +1301,13 @@ nav {
     transition: .2s;
 }
 
-.footerCopyrightText, .footerCopyrightTextMob {
+.footerCopyrightText,
+.footerCopyrightTextMob {
     color: rgba(255, 255, 255, 0.9);
     text-align: center;
     font-style: italic;
 }
 
-.footerCopyrightTextMob{
+.footerCopyrightTextMob {
     display: none;
 }
